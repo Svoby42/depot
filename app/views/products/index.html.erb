@@ -2,17 +2,17 @@
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1>Products</h1>
-
+<h1>Produkty</h1>
+<%= link_to "Nový produkt", new_product_path %>
 <table class="table text-white">
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Title</th>
-    <th scope="col">Description</th>
+    <th scope="col">Název</th>
+    <th scope="col">Popis</th>
     <th scope="col">Image_url</th>
-    <th scope="col">Price</th>
-    <th scope="col">Actions</th>
+    <th scope="col">Cena</th>
+    <th scope="col">Možnosti</th>
   </tr>
   </thead>
   <tbody>
@@ -22,7 +22,7 @@
             <%= product.id %>
           </td>
           <td class="description">
-            <h1><%= product.title %></h1>
+            <h3><%= product.title %></h3>
           </td>
           <td class="description">
             <p>
@@ -31,6 +31,7 @@
           </td>
           <td>
             tralala
+            <img src="<%= gravatar(product.title) %>">
             <%#= image_tag(product.image_url, class: 'list-image') %>
           </td>
           <td>
@@ -38,10 +39,10 @@
           </td>
           <td class="actions">
             <ul>
-              <li><%= link_to 'Show', product %></li>
-              <li><%= link_to 'Edit', edit_product_path(product) %></li>
+              <li><%= link_to 'Zobrazit', product %></li>
+              <li><%= link_to 'Upravit', edit_product_path(product) %></li>
               <li>
-                <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= link_to 'Smazat', product, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>
             </ul>
           </td>
@@ -49,5 +50,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to "New product", new_product_path %>

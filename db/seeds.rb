@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Product.create!(title: 'Název',
+                description: %(<p>Lorem ipsum dolor sit amet</p>),
+                image_url: 'obrazek.jpg',
+                price: 20)
+
+99.times do |n|
+  Product.create!(title: Faker::Name.name,
+                  description: Faker::Lorem.sentence(word_count: 20),
+                  image_url: "#{n}_picture.jpg",
+                  price: Faker::Number.within(range: 1..100))
+end

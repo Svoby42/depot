@@ -13,7 +13,7 @@ Product.create!(title: 'Název',
 
 99.times do |n|
   Product.create!(title: Faker::Commerce.product_name,
-                  description: Faker::Lorem.sentence(word_count: 20),
+                  description: Faker::Lorem.sentence(word_count: 200),
                   image_url: "#{n}_picture.jpg",
                   price: Faker::Number.within(range: 1..100))
 end

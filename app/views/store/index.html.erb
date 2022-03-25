@@ -1,0 +1,17 @@
+<% if notice %>
+  <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h1>Katalog</h1>
+<% @products.each do |product| %>
+  <div class="row border border-warning">
+    <h2 class="float-left"><%= product.title %></h2>
+    <div>
+      <%= image_tag(gravatar(product.title), class: "gravatar-image") %>
+      <%= sanitize(product.description) %>
+    </div>
+    <div class="price mt-2">
+      <%= number_to_currency(product.price, unit: "Kč", format: "%n %u") %>
+    </div>
+  </div>
+<% end %>

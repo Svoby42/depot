@@ -12,12 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title, "Název", style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label :description, "Popis" ,style: "display: block" %>
     <%= form.text_area :description, rows: 10, cols: 60 %>
   </div>
 
@@ -27,11 +27,11 @@
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
+    <%= form.label :price, "Cena" ,style: "display: block" %>
     <%= form.text_field :price %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Uložit produkt" %>
   </div>
 <% end %>

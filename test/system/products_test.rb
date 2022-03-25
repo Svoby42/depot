@@ -12,36 +12,37 @@ class ProductsTest < ApplicationSystemTestCase
 
   test "should create product" do
     visit products_url
-    click_on "New product"
+    click_on "Nový produkt"
 
-    fill_in "Description", with: @product.description
+    fill_in "Popis", with: @product.description
     fill_in "Image url", with: @product.image_url
-    fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
-    click_on "Create Product"
+    fill_in "Cena", with: @product.price
+    fill_in "Název", with: @product.title
+    click_on "Uložit"
 
     assert_text "Product was successfully created"
-    click_on "Back"
+    click_on "Zpátky"
   end
 
   test "should update Product" do
     visit product_url(@product)
-    click_on "Edit this product", match: :first
+    click_on "Upravit", match: :first
 
-    fill_in "Description", with: @product.description
+    fill_in "Popis", with: @product.description
     fill_in "Image url", with: @product.image_url
-    fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
-    click_on "Update Product"
+    fill_in "Cena", with: @product.price
+    fill_in "Název", with: @product.title
+    click_on "Uložit"
 
     assert_text "Product was successfully updated"
-    click_on "Back"
+    click_on "Zpátky"
   end
 
   test "should destroy Product" do
     visit product_url(@product)
-    click_on "Destroy this product", match: :first
+    click_on "Smazat", match: :first
 
     assert_text "Product was successfully destroyed"
   end
+
 end

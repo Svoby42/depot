@@ -7,7 +7,13 @@ one:
   price: 9.99
 
 two:
-  title: second
+  title: secondtitle
   description: MyText
   image_url: picture.jpg
   price: 9.99
+
+three:
+  title: secondtitle
+  description: sometext
+  image_url: picture.jpg
+  price: 19.99

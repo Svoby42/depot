@@ -3,15 +3,24 @@
 <% end %>
 
 <h1>Katalog</h1>
-<% @products.each do |product| %>
-  <div class="row border border-warning">
-    <h2 class="float-left"><%= product.title %></h2>
-    <div>
-      <%= image_tag(gravatar(product.title), class: "gravatar-image") %>
-      <%= sanitize(product.description) %>
-    </div>
-    <div class="price mt-2">
-      <%= number_to_currency(product.price, unit: "Kč", format: "%n %u") %>
-    </div>
-  </div>
+<% cache @products do %>
+  <% @products.each do |product| %>
+    <% cache product do %>
+      <div class="row border border-warning">
+        <h2 class="float-left"><%= product.title %></h2>
+        <div class="row">
+          <div class="col-md-2 h-25">
+            <%= image_tag(gravatar(product.title), class: "gravatar-image") %>
+          </div>
+          <div class="col-md-8">
+            <p><%= product.description %></p>
+          </div>
+          <hr class="w-100">
+          <div class="price mb-3">
+            <%= number_to_currency(product.price, unit: "Kč", format: "%n %u") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

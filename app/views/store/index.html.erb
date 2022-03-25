@@ -9,15 +9,17 @@
       <div class="row border border-warning">
         <h2 class="float-left"><%= product.title %></h2>
         <div class="row">
-          <div class="col-md-2 h-25">
+          <div class="col-md-2">
             <%= image_tag(gravatar(product.title), class: "gravatar-image") %>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-10 popis">
             <p><%= product.description %></p>
           </div>
-          <hr class="w-100">
-          <div class="price mb-3">
-            <%= number_to_currency(product.price, unit: "Kč", format: "%n %u") %>
+          <div class="mt-2 mb-3 ml-3 ml-auto col-md-12 shop-button">
+            <%= button_to "Přidat do košíku", line_items_path(product_id: product), class: "btn btn-success float-right shop-col" %>
+            <div class="shop-col">
+              <%= number_to_currency(product.price, unit: "Kč", format: "%n %u") %>
+            </div>
           </div>
         </div>
       </div>

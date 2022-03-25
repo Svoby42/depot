@@ -1,0 +1,25 @@
+<% if notice %>
+  <aside id="notice bg-success"><%= notice %></aside>
+<% end %>
+<h2>Košík</h2>
+<p style="float: right">Celková cena: <%= number_to_currency(total_price, unit: "Kč", format: "%n %u") %></p>
+<table class="table text-white">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Název</th>
+    <th scope="col">Cena</th>
+    <th scope="col">Možnosti</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @cart.line_items.each do |item| %>
+    <tr>
+      <td><%= image_tag(gravatar(item.product.title)) %></td>
+      <td><%= item.product.title %></td>
+      <td><%= number_to_currency(item.product.price, unit: "Kč", format: "%n %u") %></td>
+      <td><%= item.product.title %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -17,6 +17,19 @@
 @import "bootstrap";
 
 .gravatar-image{
-  height: 8em;
-  width: 10em;
+  height: 15vh;
+  width: 18vh;
+}
+
+.button_to {
+  display: inline;
+}
+
+.shop-col {
+  margin: 2vh 2vh 2vh 2vh;
+  float: right !important;
+}
+
+.popis {
+  text-align: justify !important;
 }

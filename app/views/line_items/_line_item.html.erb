@@ -1,12 +1,7 @@
-<div id="<%= dom_id line_item %>">
-  <p>
-    <strong>Product:</strong>
-    <%= line_item.product_id %>
-  </p>
-
-  <p>
-    <strong>Cart:</strong>
-    <%= line_item.cart_id %>
-  </p>
-
-</div>
+<tr>
+  <td><%= image_tag(gravatar(line_item.product.title)) %></td>
+  <td><%= line_item.product.title %></td>
+  <td><%= number_to_currency(line_item.product.price, unit: "Kč", format: "%n %u") %></td>
+  <td><%= link_to "Smazat", remove_path(line_item), method: :get %></td>
+  <td><%= line_item.quantity %></td>
+</tr>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><h2 class="text-white">Bruhod</h2></a>
+    <a class="navbar-brand"><h2 class="text-white">Bruhod</h2></a>
     <button class="navbar-toggler col-md-2 bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       Menu
@@ -10,13 +10,13 @@
         <li class="nav-item"><%= link_to "Produkty", store_index_url, { :class => "nav-link" } %></li>
       </ul>
       <ul class="nav navbar-nav ml-auto ms-auto">
-          <h3>
+          <h4>
             <% if cart_empty? %>
               <li class="nav-item mr-auto"><%= link_to "Košík", "/cart", { :class => "nav-link" } %></li>
             <% else %>
               <li class="nav-item mr-auto">Prázdný košík</li>
             <% end %>
-          </h3>
+          </h4>
       </ul>
     </div>
   </div>

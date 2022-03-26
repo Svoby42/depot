@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[ show edit update ]
+  before_action :set_cart, only: %i[ show edit update destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /carts or /carts.json
   def index
@@ -49,9 +50,12 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1 or /carts/1.json
   def destroy
-    Cart.destroy!(session[:cart_id])
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to store_index_url, notice: "Košík vyprázdněn" }
+    end
     reset_session
-    redirect_to root_url
   end
 
   private
@@ -63,5 +67,9 @@ class CartsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def cart_params
       params.fetch(:cart, {})
+    end
+
+    def invalid_cart
+      redirect_to store_index_url, notice: "Špatný košík"
     end
 end

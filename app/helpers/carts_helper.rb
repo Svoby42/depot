@@ -9,12 +9,12 @@ module CartsHelper
   end
 
   def cart_empty?
-    current_cart.line_items.count >= 1
+    !current_cart.nil?
   end
 
   def current_cart
-    cart = Cart.find_by(id: session[:cart_id])
-    if cart.line_items.count >= 1
+    if (cart_id = session[:cart_id])
+      cart = Cart.find_by(id: session[:cart_id])
       @current_cart = cart
     end
   end

@@ -10,11 +10,13 @@
         <li class="nav-item"><%= link_to "Produkty", store_index_url, { :class => "nav-link" } %></li>
       </ul>
       <ul class="nav navbar-nav ml-auto ms-auto">
-        <% if cart_empty? %>
           <h3>
-            <li class="nav-item mr-auto"><%= link_to "Košík", current_cart, { :class => "nav-link" } %></li>
+            <% if cart_empty? %>
+              <li class="nav-item mr-auto"><%= link_to "Košík", "/cart", { :class => "nav-link" } %></li>
+            <% else %>
+              <li class="nav-item mr-auto">Prázdný košík</li>
+            <% end %>
           </h3>
-        <% end %>
       </ul>
     </div>
   </div>

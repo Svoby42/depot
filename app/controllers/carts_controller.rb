@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[ show edit update destroy ]
+  before_action :set_cart, only: %i[ show edit update ]
 
   # GET /carts or /carts.json
   def index
@@ -49,18 +49,15 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1 or /carts/1.json
   def destroy
-    @cart.destroy
-
-    respond_to do |format|
-      format.html { redirect_to carts_url, notice: "Cart was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    Cart.destroy(session[:cart_id])
+    reset_session
+    redirect_to root_url
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      @cart = Cart.find_by(id: session[:cart_id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -2,7 +2,10 @@
   <aside id="notice bg-success"><%= notice %></aside>
 <% end %>
 <h2>Košík</h2>
-<p style="float: right">Celková cena: <%= number_to_currency(total_price, unit: "Kč", format: "%n %u") %></p>
+<div style="float: right">Celková cena: <%= number_to_currency(total_price, unit: "Kč", format: "%n %u") %></div>
+<br>
+<div style="float: right"><%= link_to "Vyklidit košík", clear_path, method: :get, class: "nav-link" %> </div>
+
 <table class="table text-white">
   <thead>
   <tr>

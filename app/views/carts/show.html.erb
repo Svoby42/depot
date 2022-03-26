@@ -10,6 +10,7 @@
     <th scope="col">Název</th>
     <th scope="col">Cena</th>
     <th scope="col">Možnosti</th>
+    <th scope="col">Počet</th>
   </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
       <td><%= item.product.title %></td>
       <td><%= number_to_currency(item.product.price, unit: "Kč", format: "%n %u") %></td>
       <td><%= item.product.title %></td>
+      <td><%= item.quantity %></td>
     </tr>
     <% end %>
   </tbody>

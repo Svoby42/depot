@@ -18,11 +18,12 @@
   </thead>
   <tbody>
     <% @cart.line_items.each do |item| %>
+    <% prod = item.product %>
     <tr>
       <td><%= image_tag(gravatar(item.product.title)) %></td>
       <td><%= item.product.title %></td>
       <td><%= number_to_currency(item.product.price, unit: "Kč", format: "%n %u") %></td>
-      <td><%= item.product.title %></td>
+      <td><%= link_to "Smazat", remove_path(item), method: :get %></td>
       <td><%= item.quantity %></td>
     </tr>
     <% end %>

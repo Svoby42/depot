@@ -49,7 +49,7 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1 or /carts/1.json
   def destroy
-    Cart.destroy(session[:cart_id])
+    Cart.destroy!(session[:cart_id])
     reset_session
     redirect_to root_url
   end
